@@ -1,0 +1,7 @@
+<launch>
+
+    <include file="$(find my_mapping_launcher)/launch/my_gmapping_launch.launch" />
+
+    <node name="rviz" pkg="rviz" type="rviz" args="-d /home/user/catkin_ws/src/rviz_config_1.rviz" />
+    
+</launch>

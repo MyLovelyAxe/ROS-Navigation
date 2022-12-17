@@ -1,0 +1,23 @@
+<launch>
+
+    <arg name="scan_topic" default="/scan" />
+
+    <!-- map -->
+    <arg name="map_file" default="$(find my_amcl_launcher)/maps/my_map.yaml" />
+
+    <!-- provide map -->
+    <node  name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" />
+
+    <!-- activate amcl node and localization -->
+    <node name="amcl" pkg="amcl" type="amcl">
+        <rosparam file="$(find get_pose)/param/my_amcl_params.yaml" command="load" />
+        <remap from="scan" to="$(arg scan_topic)" />
+    </node>
+
+    <!-- call service server to get localization information -->
+    <node pkg="get_pose" type="get_pose_service.py" name="service_server" output="screen" />
+
+    <!-- activate rviz to visualize -->
+    <node name="rviz" pkg="rviz" type="rviz" args="-d /home/user/catkin_ws/src/rviz_config_localization.rviz" />
+
+</launch>

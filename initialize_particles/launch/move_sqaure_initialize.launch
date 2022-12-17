@@ -1,0 +1,5 @@
+<launch>
+    <!-- in order to launch this file, please firsly launch: provide_map.launch -->
+    <!-- this operation includes: initialize the particle cloud, move husky around, and calculate covariance -->
+    <node name="move_husky_node" pkg="initialize_particles" type="square_move_complete.py" output="screen" />
+</launch>

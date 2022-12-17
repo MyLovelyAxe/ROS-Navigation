@@ -1,0 +1,14 @@
+<launch>
+    
+    <arg name="scan_topic" default="/kobuki/laser/scan" />
+
+    <node name="slam_gmapping" pkg="gmapping" type="slam_gmapping" output="screen">
+        
+        <rosparam file="$(find my_mapping_launcher)/param/gmapping_params.yaml" command="load" />
+        <remap from="/scan" to="$(arg scan_topic)" />
+
+    </node>
+
+    <node name="rviz" pkg="rviz" type="rviz" args="-d /home/user/catkin_ws/src/rviz_config_1.rviz" />
+
+</launch>

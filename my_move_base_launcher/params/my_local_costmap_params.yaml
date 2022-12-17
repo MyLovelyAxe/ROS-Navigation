@@ -1,0 +1,20 @@
+# since we won't have any static map
+# the global_frame parameter needs to be set to 'odom'
+global_frame: odom
+# we set 'rolling_window' to be 'True'
+# indicating that we don't want the costmap to be initialized from a static map (as we did with the global costmap)
+# but to be built from the robot's sensor readings.
+rolling_window: true
+# define the magnitude of window of local costmap
+width: 10
+height: 10
+# The frequency in Hz for the map to be updated.
+# local map is gained from sensors, which needs to be updated
+# not from static map, which is used in global map
+update_frequency: 5
+
+plugins:
+  # Used for obstacle avoidance
+  - {name: obstacles_laser,           type: "costmap_2d::ObstacleLayer"}
+  # Used to inflate obstacles
+  - {name: inflation,                 type: "costmap_2d::InflationLayer"}

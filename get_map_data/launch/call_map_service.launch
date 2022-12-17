@@ -1,0 +1,7 @@
+<launch>
+    <node name="service_client" pkg="get_map_data" type="call_map_service.py" output="screen" />
+</launch>
+
+<!-- or we can save the map with map_server in terminal:
+$ rosrun map_server map_saver -f map_name
+remember to run this command in catkin_ws/src/ -->

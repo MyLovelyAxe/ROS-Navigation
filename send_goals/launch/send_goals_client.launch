@@ -1,0 +1,6 @@
+<launch>
+    <!-- launch move_base node -->
+    <include file="$(find husky_navigation)/launch/move_base_demo.launch" />
+    <!-- call send_goal_clint.py -->
+    <node name="send_goal_client_node" pkg="send_goals" type="send_goal_client.py" output="screen" />
+</launch>

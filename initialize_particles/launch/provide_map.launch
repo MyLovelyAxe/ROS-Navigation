@@ -1,0 +1,3 @@
+<launch>
+    <include file="$(find get_pose)/launch/my_amcl_load_yaml.launch" />
+</launch>

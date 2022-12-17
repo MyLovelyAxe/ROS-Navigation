@@ -1,0 +1,6 @@
+<launch>
+    <!-- launch the basic packages: gmapping, amcl, move_base -->
+    <include file="$(find my_move_base_launcher)/launch/my_move_base.launch" />
+    <!-- launch the service for '/make_plan' -->
+    <node name="my_make_plan_node" pkg="make_plan" type="make_plan_caller.py" output="screen" />
+</launch>
